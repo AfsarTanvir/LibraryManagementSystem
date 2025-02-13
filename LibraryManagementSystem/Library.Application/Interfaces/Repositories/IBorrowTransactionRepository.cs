@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Library.Application
+namespace Library.Application.Interfaces
 {
     public interface IBorrowTransactionRepository
     {
@@ -14,5 +14,8 @@ namespace Library.Application
         Task AddAsync(BorrowTransaction transaction);
         Task UpdateAsync(BorrowTransaction transaction);
         Task DeleteAsync(int id);
+
+        Task<BorrowTransaction> BorrowBookAsync(int bookId, int memberId);
+        Task<bool> ReturnBookAsync(int transactionId);
     }
 }
